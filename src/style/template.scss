@@ -1,0 +1,25 @@
+.wrapper {
+	position: relative;
+
+	display: flex;
+	flex-direction: column;
+
+	min-width: 320px;
+	min-height: 100vh;
+
+	overflow: hidden;
+}
+
+.content {
+	flex-grow: 1;
+	background-color: #fff;
+}
+
+.container {
+	max-width: 1000px;
+	min-width: 320px;
+
+	width: 100%;
+
+	margin: 0 auto;
+}

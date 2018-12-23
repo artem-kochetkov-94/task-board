@@ -1,0 +1,18 @@
+.task {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 10px 0;
+  padding: 14px 7px;
+  border-radius: 4.5px;
+  background: rgb(241, 241, 241);
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 6px 6px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+
+.task__title {
+  font-weight: bold;
+  font-size: 19px;
+}
+
+// background-color: rgb(202, 255, 222);
+// background-color: rgb(222, 202, 255);

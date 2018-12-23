@@ -1,0 +1,18 @@
+.task-group {
+  display: inline-block;
+  vertical-align: top;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  width: 300px;
+  margin-right: 40px;
+  padding: 30px 15px;
+  background-color: #fff;
+}
+
+.task-group__title {
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
+  border-bottom: 1px solid #ccc;
+}
