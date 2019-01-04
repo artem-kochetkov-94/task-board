@@ -3,7 +3,14 @@ import "./style.scss";
 import Task from "../Task/Task";
 import TaskCreate from "../TaskCreate/TaskCreate";
 
-const TaskGroup = ({ id, title, tasks, taskCreate, taskRemove }) => (
+const TaskGroup = ({
+  id,
+  title,
+  tasks,
+  taskCreate,
+  taskRemove,
+  taskCompleted
+}) => (
   <div className="task-group">
     <div className="task-group__title">{title}</div>
 
@@ -16,6 +23,7 @@ const TaskGroup = ({ id, title, tasks, taskCreate, taskRemove }) => (
           key={task.id}
           taskGroupId={id}
           taskRemove={taskRemove}
+          taskCompleted={taskCompleted}
           {...task}
         />
       ))}

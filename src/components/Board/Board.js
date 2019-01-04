@@ -12,7 +12,8 @@ const Board = ({
   tasks,
   taskCreate,
   taskRemove,
-  taskGroupCreate
+  taskGroupCreate,
+  taskCompleted
 }) => {
   return (
     <div className="board-outer">
@@ -38,6 +39,7 @@ const Board = ({
                 )}
                 taskCreate={taskCreate}
                 taskRemove={taskRemove}
+                taskCompleted={taskCompleted}
               />
             ))}
         </div>

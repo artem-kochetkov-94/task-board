@@ -17,3 +17,10 @@ export const taskRemove = (taskId, taskGroupId) => ({
     taskGroupId
   }
 });
+
+export const taskCompleted = taskId => ({
+  type: types.TASK_COMPLETED,
+  payload: {
+    taskId
+  }
+});

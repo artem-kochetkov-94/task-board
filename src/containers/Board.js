@@ -2,7 +2,7 @@ import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import Board from "../components/Board/Board";
 import * as fromBoards from "../reducers/boards";
-import { taskCreate, taskRemove } from "../actions/tasks";
+import { taskCreate, taskRemove, taskCompleted } from "../actions/tasks";
 import { taskGroupCreate } from "../actions/taskGroups";
 
 const mapStateToProps = state => ({
@@ -16,7 +16,8 @@ const mapDispatchToProps = dispatch =>
     {
       taskCreate,
       taskRemove,
-      taskGroupCreate
+      taskGroupCreate,
+      taskCompleted
     },
     dispatch
   );
