@@ -1,32 +1,26 @@
 import React from "react";
 import "./style.scss";
-import { connect } from "react-redux";
-import { compose } from "recompose";
 import Task from "../Task/Task";
+import TaskCreate from "../TaskCreate/TaskCreate";
 
-const mapStateToProps = state => ({
-  tasksGroup: state.tasksGroup
-});
+const TaskGroup = ({ id, title, tasks, taskCreate, taskRemove }) => (
+  <div className="task-group">
+    <div className="task-group__title">{title}</div>
 
-class TaskGroup extends React.Component {
-  renderTaskGroup = (task, i) => {
-    return (
-      <Task key={i} id={task} />
-    );
-  };
+    <TaskCreate taskCreate={taskCreate} taskGroupId={id} />
 
-  render() {
-    const taskGroup = this.props.tasksGroup[this.props.id];
+    <div className="task-group__inner">
+      {tasks.map(task => (
+        <Task
+          taskId={task.id}
+          key={task.id}
+          taskGroupId={id}
+          taskRemove={taskRemove}
+          {...task}
+        />
+      ))}
+    </div>
+  </div>
+);
 
-    return (
-      <div className="task-group">
-        <div className="task-group__title">{taskGroup.title}</div>
-        <div className="task-group__inner">
-          {taskGroup.tasks.map(this.renderTaskGroup)}
-        </div>
-      </div>
-    );
-  }
-}
-
-export default compose(connect(mapStateToProps))(TaskGroup);
+export default TaskGroup;

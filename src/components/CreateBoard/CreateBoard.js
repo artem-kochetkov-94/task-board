@@ -2,17 +2,6 @@ import React from "react";
 import "./style.scss";
 import Button from "../Button/Button";
 
-import { compose } from "recompose";
-import { connect } from "react-redux";
-
-import boardCreate from "../../actions/board";
-
-const mapDispatchToProps = dispatch => ({
-  boardCreate(title) {
-    dispatch(boardCreate(title));
-  }
-});
-
 class CreateBoard extends React.Component {
   constructor(props) {
     super(props);
@@ -53,14 +42,18 @@ class CreateBoard extends React.Component {
     }
 
     if (this.state.errors.length) {
-      this.setState({ errors: [] });
+      this.setState({
+        errors: []
+      });
     }
 
     this.props.boardCreate(title);
   };
 
   boardNameHandleChange = e => {
-    this.setState({ boardTitle: e.target.value });
+    this.setState({
+      boardTitle: e.target.value
+    });
   };
 
   handleErrors = field =>
@@ -140,9 +133,4 @@ class CreateBoard extends React.Component {
   }
 }
 
-export default compose(
-  connect(
-    undefined,
-    mapDispatchToProps
-  )
-)(CreateBoard);
+export default CreateBoard;

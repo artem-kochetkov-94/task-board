@@ -1,22 +1,19 @@
 import React from "react";
 import "./style.scss";
-import { connect } from "react-redux";
-import { compose } from "recompose";
 
-const mapStateToProps = state => ({
-  tasks: state.tasks
-});
+const Task = ({ title, taskId, taskGroupId, taskRemove }) => (
+  <div className="task">
+    <div className="task__title">{title}</div>
+    <div className="task__actions">
+      <button
+        type="button"
+        className="task__action task__remove"
+        onClick={() => taskRemove(taskId, taskGroupId)}
+      >
+        -
+      </button>
+    </div>
+  </div>
+);
 
-class Task extends React.Component {
-  render() {
-    const task = this.props.tasks[this.props.id];
-
-    return (
-      <div className="task">
-        <div className="task__title">{task.title}</div>
-      </div>
-    );
-  }
-}
-
-export default compose(connect(mapStateToProps))(Task);
+export default Task;

@@ -1,12 +1,19 @@
-import { ACTIONS } from "./actions";
+import * as types from "../constants/tasks";
 import uuidv4 from "uuid/v4";
 
-const boardAdd = title => ({
-  type: ACTIONS.TASK_ADD,
+export const taskCreate = (title, taskGroupId) => ({
+  type: types.TASK_CREATE,
   payload: {
     id: uuidv4(),
-    title
+    title,
+    taskGroupId
   }
 });
 
-export default boardAdd;
+export const taskRemove = (taskId, taskGroupId) => ({
+  type: types.TASK_REMOVE,
+  payload: {
+    taskId,
+    taskGroupId
+  }
+});

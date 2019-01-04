@@ -1,24 +1,29 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect
+} from "react-router-dom";
 import "./style.scss";
-import Home from "../Home/Home";
-import Board from "../Board/Board";
-import { NavLink } from "react-router-dom";
+import WelcomePage from "../WelcomePage/WelcomePage";
+import BoardsPage from "../../containers/BoardsPage";
+import Board from "../../containers/Board";
 
 class App extends React.Component {
   render() {
     return (
-      <Router>
-        <div className="app">
-          <NavLink to="/" className="home-link">
-            Домой
-          </NavLink>
+      <div className="app">
+        <Router>
           <Switch>
-            <Route exact path="/" component={Home} />
-            <Route path="/board/:id" component={Board} />
+            <Route exact path="/" component={WelcomePage} />
+            <Route path="/welcome" component={WelcomePage} />
+            <Route exact path="/boards" component={BoardsPage} />
+            <Route path="/boards/:id" component={Board} />
+            <Redirect to="/" />
           </Switch>
-        </div>
-      </Router>
+        </Router>
+      </div>
     );
   }
 }

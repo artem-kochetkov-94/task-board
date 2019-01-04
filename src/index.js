@@ -2,18 +2,12 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./style/main.scss";
 import App from "./components/App/App";
-
+import configureStore from './store';
 import { Provider } from "react-redux";
-import { createStore } from "redux";
 
-import reducers from "./reducers";
-
+const store = configureStore();
 
 localStorage.clear();
-
-const store = createStore(
-  reducers
-);
 
 store.subscribe(() => {
   localStorage["redux-store"] = JSON.stringify(store.getState());

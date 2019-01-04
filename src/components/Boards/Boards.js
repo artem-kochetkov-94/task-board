@@ -1,19 +1,21 @@
 import React from "react";
 import "./style.scss";
-import { connect } from "react-redux";
-import { compose } from "recompose";
 import { NavLink } from "react-router-dom";
 
-const mapStateToProps = state => ({ boards: state.boards });
 
-const Boards = ({ boards }) => (
+const Boards = ({ boards, setActiveBoard }) => (
   <div className="boards">
-    {boards.map((board, index) => (
-      <NavLink to={`/board/${index}`} className="boards__item" key={board.id}>
+    {boards.all.map(board => (
+      <NavLink
+        to={`/boards/${board.id}`}
+        className="boards__item"
+        key={board.id}
+        onClick={() => setActiveBoard(board.id)}
+      >
         {board.title}
       </NavLink>
     ))}
   </div>
 );
 
-export default compose(connect(mapStateToProps))(Boards);
+export default Boards;
