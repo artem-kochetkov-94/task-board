@@ -1,8 +1,8 @@
 import { combineReducers } from "redux";
-import * as types from "../constants/boards";
+import * as types from "../constants/";
 
 const initialState = {
-  activeId: "1",
+  activeId: "0",
   allIds: ["0", "1"],
   byIds: {
     "0": {
@@ -44,6 +44,18 @@ const byIds = (state = initialState.byIds, action) => {
       return {
         ...state,
         [getBoardId(action.payload)]: action.payload
+      };
+    case types.TASK_GROUP_CREATE:
+      const boardId = action.payload.boardId;
+      return {
+        ...state,
+        [boardId]: {
+          ...state[boardId],
+          taskGroups: [
+            ...state[boardId].taskGroups,
+            action.payload.id
+          ]
+        }
       };
     default:
       return state;

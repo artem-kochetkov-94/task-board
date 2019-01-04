@@ -2,10 +2,16 @@
   padding: 50px 100px;
 }
 
+.board__header {
+  display: flex;
+  margin-bottom: 40px;
+}
+
 .board__title {
   display: inline-flex;
+  align-self: flex-start;
 
-  margin-bottom: 40px;
+  margin-right: 20px;
   padding: 10px 60px;
 
   font-size: 30px;

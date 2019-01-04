@@ -23,6 +23,7 @@ class CreateBoard extends React.Component {
     }
 
     this.setState(state => ({
+      ...state,
       formVisibility: !this.state.formVisibility
     }));
   };

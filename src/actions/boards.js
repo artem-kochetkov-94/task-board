@@ -6,7 +6,7 @@ export const boardCreate = title => ({
   payload: {
     id: uuidv4(),
     title,
-    tasksGroup: []
+    taskGroups: []
   }
 });
 

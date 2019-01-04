@@ -37,7 +37,10 @@ const byIds = (state = initialState.byIds, action) => {
     case types.TASK_GROUP_CREATE:
       return {
         ...state,
-        [getTaskGroupId(action.payload)]: action.payload
+        [getTaskGroupId(action.payload)]: {
+          title: action.payload.title,
+          tasks: action.payload.tasks
+        }
       };
     case types.TASK_CREATE:
       return {
