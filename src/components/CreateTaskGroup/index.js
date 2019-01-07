@@ -1,6 +1,6 @@
 import React from "react";
 import "./style.scss";
-import Button from "../Button/Button";
+import Button from "../Button/";
 
 class CreateTaskGroup extends React.Component {
   state = {

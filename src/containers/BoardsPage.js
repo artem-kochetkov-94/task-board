@@ -1,6 +1,6 @@
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
-import BoardsPage from "../components/BoardsPage/BoardsPage";
+import BoardsPage from "../components/BoardsPage/";
 import * as fromBoards from "../reducers/boards";
 import { boardCreate, setActiveBoard } from "../actions/boards";
 

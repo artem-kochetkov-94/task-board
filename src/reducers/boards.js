@@ -45,18 +45,27 @@ const byIds = (state = initialState.byIds, action) => {
         ...state,
         [getBoardId(action.payload)]: action.payload
       };
-    case types.TASK_GROUP_CREATE:
+    case types.TASK_GROUP_CREATE: {
       const boardId = action.payload.boardId;
       return {
         ...state,
         [boardId]: {
           ...state[boardId],
-          taskGroups: [
-            ...state[boardId].taskGroups,
-            action.payload.id
-          ]
+          taskGroups: [...state[boardId].taskGroups, action.payload.id]
         }
       };
+    }
+    case types.TASK_GROUP_REMOVE: {
+      const taskGroupId = action.payload.taskGroupId;
+      const boardId = action.payload.boardId;
+      return {
+        ...state,
+        [boardId]: {
+          ...state[boardId],
+          taskGroups: state[boardId].taskGroups.filter(id => id !== taskGroupId)
+        }
+      };
+    }
     default:
       return state;
   }

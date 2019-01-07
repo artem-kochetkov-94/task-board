@@ -1,7 +1,7 @@
 import React from "react";
 import "./style.scss";
-import Task from "../Task/Task";
-import TaskCreate from "../TaskCreate/TaskCreate";
+import Task from "../Task/";
+import TaskCreate from "../TaskCreate/";
 
 const TaskGroup = ({
   id,
@@ -9,7 +9,9 @@ const TaskGroup = ({
   tasks,
   taskCreate,
   taskRemove,
-  taskCompleted
+  taskCompleted,
+  taskGroupRemove,
+  boardId
 }) => (
   <div className="task-group">
     <div className="task-group__title">{title}</div>
@@ -28,6 +30,12 @@ const TaskGroup = ({
         />
       ))}
     </div>
+
+    <button
+      type="button"
+      className="task-group__remove"
+      onClick={() => taskGroupRemove(id, boardId)}
+    />
   </div>
 );
 

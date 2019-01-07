@@ -1,6 +1,6 @@
 import React from "react";
 import "./style.scss";
-import Button from "../Button/Button";
+import Button from "../Button/";
 
 class CreateBoard extends React.Component {
   constructor(props) {

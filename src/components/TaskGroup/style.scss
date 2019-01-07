@@ -1,4 +1,7 @@
+@import "../../style/variables";
+
 .task-group {
+  position: relative;
   display: inline-block;
   vertical-align: top;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
@@ -16,4 +19,40 @@
   text-align: center;
   text-transform: uppercase;
   border-bottom: 1px solid #ccc;
+}
+
+.task-group__remove {
+  top: -10px;
+  right: -10px;
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #fff;
+  transition: transform 0.2s;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(#000, 0.5);
+
+  &:hover {
+    transform: scale(1.2);
+  }
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 9px;
+    height: 2px;
+    background-color: $color-green;
+  }
+
+  &::before {
+    transform: translate(-50%, -50%) rotate(-45deg);
+  }
+
+  &::after {
+    transform: translate(-50%, -50%) rotate(45deg);
+  }
 }

@@ -8,7 +8,7 @@ const Task = ({
   taskGroupId,
   taskRemove,
   isCompleted,
-  taskCompleted
+  taskCompleted,
 }) => (
   <div className={classNames("task", { "task--completed": isCompleted })}>
     <div className="task__title">{title}</div>

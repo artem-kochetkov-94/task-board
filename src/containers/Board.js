@@ -1,9 +1,9 @@
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
-import Board from "../components/Board/Board";
+import Board from "../components/Board/";
 import * as fromBoards from "../reducers/boards";
 import { taskCreate, taskRemove, taskCompleted } from "../actions/tasks";
-import { taskGroupCreate } from "../actions/taskGroups";
+import { taskGroupCreate, taskGroupRemove } from "../actions/taskGroups";
 
 const mapStateToProps = state => ({
   board: fromBoards.getBoardById(state.boards, state.boards.activeId),
@@ -16,8 +16,9 @@ const mapDispatchToProps = dispatch =>
     {
       taskCreate,
       taskRemove,
+      taskCompleted,
       taskGroupCreate,
-      taskCompleted
+      taskGroupRemove,
     },
     dispatch
   );

@@ -1,7 +1,7 @@
 import React from "react";
 import "./style.scss";
-import CreateBoard from "../CreateBoard/CreateBoard";
-import Boards from "../Boards/Boards";
+import CreateBoard from "../CreateBoard/";
+import Boards from "../Boards/";
 
 class BoardsPage extends React.Component {
   render() {

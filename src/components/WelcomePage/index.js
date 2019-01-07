@@ -1,6 +1,6 @@
 import React from "react";
 import "./style.scss";
-import HomeLink from "../HomeLink/HomeLink";
+import HomeLink from "../HomeLink/";
 import { NavLink } from "react-router-dom";
 
 const WelcomePage = () => (

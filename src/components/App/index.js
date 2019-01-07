@@ -6,7 +6,7 @@ import {
   Redirect
 } from "react-router-dom";
 import "./style.scss";
-import WelcomePage from "../WelcomePage/WelcomePage";
+import WelcomePage from "../WelcomePage/";
 import BoardsPage from "../../containers/BoardsPage";
 import Board from "../../containers/Board";
 

@@ -1,8 +1,8 @@
 import React from "react";
 import "./style.scss";
-import TaskGroup from "../TaskGroup/TaskGroup";
-import HomeLink from "../HomeLink/HomeLink";
-import CreateTaskGroup from "../CreateTaskGroup/CreateTaskGroup";
+import TaskGroup from "../TaskGroup/";
+import HomeLink from "../HomeLink/";
+import CreateTaskGroup from "../CreateTaskGroup/";
 import * as fromTaskGroups from "../../reducers/taskGroups";
 import * as fromTasks from "../../reducers/tasks";
 
@@ -13,6 +13,7 @@ const Board = ({
   taskCreate,
   taskRemove,
   taskGroupCreate,
+  taskGroupRemove,
   taskCompleted
 }) => {
   return (
@@ -40,6 +41,8 @@ const Board = ({
                 taskCreate={taskCreate}
                 taskRemove={taskRemove}
                 taskCompleted={taskCompleted}
+                taskGroupRemove={taskGroupRemove}
+                boardId={board.id}
               />
             ))}
         </div>

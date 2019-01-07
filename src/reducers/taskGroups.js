@@ -15,12 +15,12 @@ const initialState = {
       tasks: ["2", "3"]
     },
     "2": {
-      id: "3",
+      id: "2",
       title: "title-2",
       tasks: ["4", "5"]
     },
     "3": {
-      id: "4",
+      id: "3",
       title: "title-3",
       tasks: ["6", "7"]
     }
@@ -31,6 +31,8 @@ const allIds = (state = initialState.allIds, action) => {
   switch (action.type) {
     case types.TASK_GROUP_CREATE:
       return [...state, getTaskGroupId(action.payload)];
+    case types.TASK_GROUP_REMOVE:
+      return state.filter(id => id !== action.payload.taskGroupId);
     default:
       return state;
   }
@@ -47,6 +49,10 @@ const byIds = (state = initialState.byIds, action) => {
           tasks: action.payload.tasks
         }
       };
+    case types.TASK_GROUP_REMOVE:
+      const newState = { ...state };
+      delete newState[action.payload.taskGroupId];
+      return newState;
     case types.TASK_CREATE:
       return {
         ...state,

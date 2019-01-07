@@ -17,4 +17,4 @@ export const setActiveBoard = boardId => ({
   }
 });
 
-export const unsetActiveBoard = () => {};
+// export const unsetActiveBoard = () => {};
