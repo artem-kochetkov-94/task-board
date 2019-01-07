@@ -7,6 +7,7 @@ const TaskGroup = ({
   id,
   title,
   tasks,
+  taskIds,
   taskCreate,
   taskRemove,
   taskCompleted,
@@ -34,7 +35,7 @@ const TaskGroup = ({
     <button
       type="button"
       className="task-group__remove"
-      onClick={() => taskGroupRemove(id, boardId)}
+      onClick={() => taskGroupRemove(id, boardId, taskIds)}
     />
   </div>
 );

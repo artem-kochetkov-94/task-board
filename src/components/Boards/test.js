@@ -1,7 +1,5 @@
 import React from "react";
-import {
-  BrowserRouter as Router,
-} from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
 import Enzyme, { render } from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
 import Boards from "./";

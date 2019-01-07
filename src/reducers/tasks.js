@@ -1,5 +1,6 @@
 import { combineReducers } from "redux";
 import * as types from "../constants/";
+import findArray from "../utils/findInArray";
 
 const initialState = {
   allIds: ["0", "1", "2", "3", "4", "5", "6", "7"],
@@ -53,6 +54,14 @@ const allIds = (state = initialState.allIds, action) => {
       return [...state, getTaskId(action.payload)];
     case types.TASK_REMOVE:
       return state.filter(id => id !== action.payload.taskId);
+    case types.TASK_GROUP_REMOVE:
+      return state.filter(id => {
+        if (findArray(action.payload.taskIds, id) !== -1) {
+          return false;
+        }
+
+        return true;
+      });
     default:
       return state;
   }
@@ -66,10 +75,11 @@ const byIds = (state = initialState.byIds, action) => {
         [getTaskId(action.payload)]: action.payload,
         isCompleted: false
       };
-    case types.TASK_REMOVE:
+    case types.TASK_REMOVE: {
       const newState = { ...state };
       delete newState[action.payload.taskId];
       return newState;
+    }
     case types.TASK_COMPLETED:
       return {
         ...state,
@@ -77,7 +87,12 @@ const byIds = (state = initialState.byIds, action) => {
           ...state[action.payload.taskId],
           isCompleted: !state[action.payload.taskId].isCompleted
         }
-      }
+      };
+    case types.TASK_GROUP_REMOVE: {
+      const newState = { ...state };
+      action.payload.taskIds.map(id => delete newState[id]);
+      return newState;
+    }
     default:
       return state;
   }

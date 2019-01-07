@@ -38,6 +38,7 @@ const Board = ({
                   tasks,
                   fromTaskGroups.getTasksByTaskGroup(taskGroups, id)
                 )}
+                taskIds={fromTaskGroups.getTasksByTaskGroup(taskGroups, id)}
                 taskCreate={taskCreate}
                 taskRemove={taskRemove}
                 taskCompleted={taskCompleted}

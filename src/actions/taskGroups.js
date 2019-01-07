@@ -11,10 +11,11 @@ export const taskGroupCreate = (title, boardId) => ({
   }
 });
 
-export const taskGroupRemove = (taskGroupId, boardId) => ({
+export const taskGroupRemove = (taskGroupId, boardId, taskIds) => ({
   type: types.TASK_GROUP_REMOVE,
   payload: {
     taskGroupId,
-    boardId
+    boardId,
+    taskIds
   }
 });
