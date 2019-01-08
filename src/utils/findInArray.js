@@ -1,11 +1,15 @@
-export default function(array, value) {
+export default (() => {
   if ([].indexOf) {
-    return array.indexOf(value);
+    return function(array, value) {
+      return array.indexOf(value);
+    };
   } else {
-    for (var i = 0; i < array.length; i++) {
-      if (array[i] === value) return i;
-    }
+    return function(array, value) {
+      for (var i = 0; i < array.length; i++) {
+        if (array[i] === value) return i;
+      }
 
-    return -1;
+      return -1;
+    };
   }
-}
+})();

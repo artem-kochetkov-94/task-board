@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router } from "react-router-dom";
-import Enzyme, { render } from "enzyme";
-import Adapter from "enzyme-adapter-react-16";
+import { render } from "enzyme";
+
 import Boards from "./";
 
 const boards = {
@@ -18,8 +18,6 @@ const boards = {
     }
   ]
 };
-
-Enzyme.configure({ adapter: new Adapter() });
 
 describe("boards", () => {
   it("should render boards", () => {
