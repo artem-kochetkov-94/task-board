@@ -2,8 +2,8 @@ import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import Board from "../components/Board/";
 import * as fromBoards from "../reducers/boards";
-import { taskCreate, taskRemove, taskCompleted } from "../actions/tasks";
 import { taskGroupCreate, taskGroupRemove } from "../actions/taskGroups";
+import { taskCreate, taskRemove, taskCompleted } from "../actions/tasks";
 
 const mapStateToProps = state => ({
   board: fromBoards.getBoardById(state.boards, state.boards.activeId),

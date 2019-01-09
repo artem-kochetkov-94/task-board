@@ -33,6 +33,8 @@ const allIds = (state = initialState.allIds, action) => {
   switch (action.type) {
     case types.BOARD_CREATE:
       return [...state, getBoardId(action.payload)];
+    case types.BOARD_REMOVE:
+      return state.filter(id => id !== action.payload.boardId);
     default:
       return state;
   }
@@ -45,6 +47,10 @@ const byIds = (state = initialState.byIds, action) => {
         ...state,
         [getBoardId(action.payload)]: action.payload
       };
+    case types.BOARD_REMOVE:
+      const newState = { ...state };
+      delete newState[action.payload.boardId];
+      return newState;
     case types.TASK_GROUP_CREATE: {
       const boardId = action.payload.boardId;
       return {

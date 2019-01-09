@@ -1,4 +1,5 @@
 export const BOARD_CREATE = "BOARD_CREATE";
+export const BOARD_REMOVE = "BOARD_REMOVE";
 
 export const SET_ACTIVE_BOARD = "SET_ACTIVE_BOARD";
 

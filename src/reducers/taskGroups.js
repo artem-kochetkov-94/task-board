@@ -1,5 +1,6 @@
 import { combineReducers } from "redux";
 import * as types from "../constants/";
+import findArray from "../utils/findInArray";
 
 const initialState = {
   allIds: ["0", "1", "2", "3"],
@@ -33,6 +34,14 @@ const allIds = (state = initialState.allIds, action) => {
       return [...state, getTaskGroupId(action.payload)];
     case types.TASK_GROUP_REMOVE:
       return state.filter(id => id !== action.payload.taskGroupId);
+    case types.BOARD_REMOVE:
+      return state.filter(id => {
+        if (findArray(action.payload.taskGroupIds, id) !== -1) {
+          return false;
+        }
+
+        return true;
+      });
     default:
       return state;
   }
@@ -49,10 +58,11 @@ const byIds = (state = initialState.byIds, action) => {
           tasks: action.payload.tasks
         }
       };
-    case types.TASK_GROUP_REMOVE:
+    case types.TASK_GROUP_REMOVE: {
       const newState = { ...state };
       delete newState[action.payload.taskGroupId];
       return newState;
+    }
     case types.TASK_CREATE:
       return {
         ...state,
@@ -73,6 +83,11 @@ const byIds = (state = initialState.byIds, action) => {
           ]
         }
       };
+    case types.BOARD_REMOVE: {
+      const newState = { ...state };
+      action.payload.taskGroupIds.map(id => delete newState[id]);
+      return newState;
+    }
     default:
       return state;
   }
@@ -87,3 +102,8 @@ export const getTaskGroupByIds = (state, ids) =>
 
 export const getTaskGroupTitleById = (state, id) => state.byIds[id].title;
 export const getTasksByTaskGroup = (state, id) => state.byIds[id].tasks;
+export const getTasksByTaskGroups = (state, ids) => {
+  return ids.reduce((accomulator, id) => {
+    return [...accomulator, ...state.byIds[id].tasks];
+  }, []);
+};

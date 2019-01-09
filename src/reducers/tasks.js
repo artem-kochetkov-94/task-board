@@ -54,6 +54,7 @@ const allIds = (state = initialState.allIds, action) => {
       return [...state, getTaskId(action.payload)];
     case types.TASK_REMOVE:
       return state.filter(id => id !== action.payload.taskId);
+    case types.BOARD_REMOVE:
     case types.TASK_GROUP_REMOVE:
       return state.filter(id => {
         if (findArray(action.payload.taskIds, id) !== -1) {
@@ -88,6 +89,7 @@ const byIds = (state = initialState.byIds, action) => {
           isCompleted: !state[action.payload.taskId].isCompleted
         }
       };
+    case types.BOARD_REMOVE:
     case types.TASK_GROUP_REMOVE: {
       const newState = { ...state };
       action.payload.taskIds.map(id => delete newState[id]);

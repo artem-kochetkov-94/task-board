@@ -14,6 +14,15 @@ export const boardCreate = title => {
   };
 };
 
+export const boardRemove = (boardId, taskGroupIds, taskIds) => ({
+  type: types.BOARD_REMOVE,
+  payload: {
+    boardId,
+    taskGroupIds,
+    taskIds
+  }
+});
+
 export const setActiveBoard = boardId => ({
   type: types.SET_ACTIVE_BOARD,
   payload: {
